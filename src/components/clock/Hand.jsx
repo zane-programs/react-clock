@@ -17,9 +17,13 @@ function Hand(props) {
   }
 
   const classNameAdjusted = `hand ${props.type}-hand`;
-  const styles = {
-    transform: `rotate(${rotateDegrees}deg)`,
-  }
+  // I added a scale here because the clock hands were a bit too long...
+  let styles = {
+    transform: `rotate(${rotateDegrees}deg) scale(0.95)`,
+  };
+
+  if (props.color) styles.backgroundColor = props.color;
+
   return (
     <div className={classNameAdjusted} style={styles}></div>
   );

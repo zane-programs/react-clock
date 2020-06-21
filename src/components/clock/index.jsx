@@ -34,6 +34,10 @@ class Clock extends React.Component {
     if (this.props.textColor) clockTextStyle.color = this.props.textColor;
     if (this.props.textSize) clockTextStyle.fontSize = this.props.textSize;
 
+    let clockBorderSize = (this.props.borderSize) ? this.props.borderSize : '2px';
+    let clockBorderColor = (this.props.borderColor) ? this.props.borderColor : '#000';
+    clockStyle.border = `${clockBorderSize} solid ${clockBorderColor}`;
+
     let shouldDisplayClockText = this.props.displayText || false;
     let clockTextElem;
     if (shouldDisplayClockText) {
@@ -48,11 +52,10 @@ class Clock extends React.Component {
       <div className="clock-outer">
         <div className="clock" style={clockStyle}>
           <div className="clock-inner">
-            <Hand type="hour" units={this.state.date.getHours()} />
-            <Hand type="minute" units={this.state.date.getMinutes()} />
+            <Hand type="hour" units={this.state.date.getHours()} color={this.props.hourHandColor} />
+            <Hand type="minute" units={this.state.date.getMinutes()} color={this.props.minuteHandColor} />
             <Hand type="second" units={this.state.date.getSeconds()} />
             <div className="clock-center-hand-cover"></div>
-            {/*<div className="clock-loading-indicator">Loading...</div>*/}
           </div>
         </div>
         {clockTextElem}

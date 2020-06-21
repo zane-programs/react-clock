@@ -64,12 +64,14 @@ div.clock div.hand.minute-hand {
   width: 2px;
   height: calc(var(--clock-large-size) / 2);
   background: #000;
+  border-radius: 1px;
 }
 
 div.clock div.hand.hour-hand {
   width: 4px;
   height: calc(var(--clock-large-size) / 2);
   background: #000;
+  border-radius: 2px;
 }
 
 div.clock:not(.loading) div.clock-center-hand-cover {
